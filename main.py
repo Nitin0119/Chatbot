@@ -9,14 +9,11 @@ st.set_page_config(page_title="Hiring Assistant Chatbot", page_icon="🤖")
 # --- API KEY SETUP ---
 # It's recommended to use st.secrets for deployment
 # For local development, you can use a sidebar input
-with st.sidebar:
-    st.header("Configuration")
-    api_key = st.text_input("Enter your API Key", type="password")
-    if api_key:
-        client = OpenAI(api_key=api_key)
-        st.success("API Key set successfully!")
-    else:
-        st.warning("Please enter your API Key to begin.")
+OPENAI_API_KEY = "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"
+if "OPENAI_API_KEY" in st.secrets:
+    client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+else:
+    st.warning("API key not found. Please add it to your Streamlit secrets.", icon="⚠️")
 
 # --- PROMPT TEMPLATES ---
 # This is a basic system prompt. You can enhance it with more instructions.
