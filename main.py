@@ -9,7 +9,7 @@ st.set_page_config(page_title="Hiring Assistant Chatbot", page_icon="🤖")
 # --- API KEY SETUP ---
 # It's recommended to use st.secrets for deployment
 # For local development, you can use a sidebar input
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = input('Enter API Key: ')
 if "OPENAI_API_KEY" in st.secrets:
     client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 else:
